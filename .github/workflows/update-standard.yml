@@ -7,6 +7,10 @@ on:
         description: 'DICOM version'
         type: string
         default: 'current'
+      commitToMaster:
+        description: 'Commit to master branch'
+        type: boolean
+        default: false
   schedule:
     - cron: '0 0 1 * *'
 
@@ -72,4 +76,4 @@ jobs:
         uses: mikeal/publish-to-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        if: success() && steps.diff_files.outputs.diff_lines > 0
+        if: success() && steps.diff_files.outputs.diff_lines > 0 && inputs.commitToMaster
