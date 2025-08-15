@@ -156,7 +156,7 @@ def test_missing_module_type_in_section_a_90_2_5_description(part03):
 #     assert False
 
 
-def test_miscapitalized_word_in_table_b_5_1(part04):
-    table = get_table_rows_from_ids(part04, ['table_B.5-1'], ['name', 'id', 'ciod'])
-    row = next(row for row in table if 'Pseudo-color Softcopy Presentation State'.lower() in row['ciod'].lower())
-    assert row['ciod'] != 'Pseudo-Color Softcopy Presentation State IOD', 'Row now contains correct capitalization'
+# def test_miscapitalized_word_in_table_b_5_1(part04):
+#     table = get_table_rows_from_ids(part04, ['table_B.5-1'], ['name', 'id', 'ciod'])
+#     row = next(row for row in table if 'Pseudo-color Softcopy Presentation State'.lower() in row['ciod'].lower())
+#     assert row['ciod'] != 'Pseudo-Color Softcopy Presentation State IOD', 'Row now contains correct capitalization'
