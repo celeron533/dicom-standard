@@ -135,7 +135,7 @@ def test_vertical_samples_from_standard(ciods, modules, attributes):
     test_ciod = {
         "name": "Ultrasound Multi-frame Image",
         "id": "ultrasound-multi-frame-image",
-        "description": "<p>\nThe <a href=\"http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_A.7.html#sect_A.7\" target=\"_blank\">Ultrasound Multi-frame Image IOD</a> specifies a Multi-frame Image that has been created by an ultrasound imaging device.</p>",
+        "description": "<p>\nThe Ultrasound Multi-frame Image IOD specifies a Multi-frame image that has been created by an ultrasound imaging device.</p>",
         "linkToStandard": "http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_A.7.4.html#table_A.7-1"
     }
     test_module = {
@@ -147,29 +147,29 @@ def test_vertical_samples_from_standard(ciods, modules, attributes):
     test_attributes = [
         {
             "tag": "(0010,0010)",
-            "retired": 'N',
-            "keyword": "PatientName",
             "name": "Patient's Name",
-            "valueMultiplicity": "1",
+            "keyword": "PatientName",
             "valueRepresentation": "PN",
+            "valueMultiplicity": "1",
+            "retired": "N",
             "id": "00100010"
         },
         {
             "tag": "(0008,0034)",
-            "retired": 'Y',
-            "keyword": "OverlayTime",
             "name": "Overlay Time",
-            "valueMultiplicity": "1",
+            "keyword": "OverlayTime",
             "valueRepresentation": "TM",
+            "valueMultiplicity": "1",
+            "retired": "Y",
             "id": "00080034"
         },
         {
             "tag": "(0008,0108)",
-            "retired": 'N',
-            "keyword": "ExtendedCodeMeaning",
             "name": "Extended Code Meaning",
-            "valueMultiplicity": "1",
+            "keyword": "ExtendedCodeMeaning",
             "valueRepresentation": "LT",
+            "valueMultiplicity": "1",
+            "retired": "N",
             "id": "00080108"
         }
     ]
@@ -230,12 +230,12 @@ def test_trace_from_ciod_to_func_group_attribute(ciod_fg_macro_relationship, cio
 def test_trace_from_attribute_to_ciod(ciods, ciod_module_relationship, modules,
                                       module_attribute_relationship, attributes):
     attr = {
+        "tag": "(0008,0121)",
         "name": "Equivalent Code Sequence",
-        "retired": 'N',
-        "valueMultiplicity": "1",
         "keyword": "EquivalentCodeSequence",
         "valueRepresentation": "SQ",
-        "tag": "(0008,0121)",
+        "valueMultiplicity": "1",
+        "retired": "N",
         "id": "00080121"
     }
     module_attr = [
@@ -246,11 +246,11 @@ def test_trace_from_attribute_to_ciod(ciods, ciod_module_relationship, modules,
             "type": "3",
             "linkToStandard": "http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.2.2.html#table_C.7-4a",
             "description": "<p>\nCodes that are considered equivalent by the creating system.</p>\n<p>\nOne or more Items are permitted in this Sequence.</p>\n<p>\nSee <span href=\"\">Section\u00a08.9</span>.</p>",
-            "externalReferences": [
+            "externalReferences":[
                 {
                     "sourceUrl": "http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_8.9.html#sect_8.9",
                     "title": "Section\u00a08.9"
-                },
+                }
             ]
         },
         {
@@ -260,17 +260,17 @@ def test_trace_from_attribute_to_ciod(ciods, ciod_module_relationship, modules,
             "type": "3",
             "linkToStandard": "http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.2.2.html#table_C.7-4a",
             "description": "<p>\nCodes that are considered equivalent by the creating system.</p>\n<p>\nOne or more Items are permitted in this Sequence.</p>\n<p>\nSee <span href=\"\">Section\u00a08.9</span>.</p>",
-            "externalReferences": [
+            "externalReferences":[
                 {
                     "sourceUrl": "http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_8.9.html#sect_8.9",
                     "title": "Section\u00a08.9"
-                },
+                }
             ]
         },
     ]
     module = {
-        "id": "patient-study",
         "name": "Patient Study",
+        "id": "patient-study",
         "description": "<p>\n<span href=\"#table_C.7-4a\">This module </span> specifies the Attributes of the <a href=\"http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.2.2.html#sect_C.7.2.2\" target=\"_blank\">Patient Study Module</a>, which provide information about the Patient at the time the Study started.</p>",
         "linkToStandard": "http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.2.2.html#table_C.7-4a"
     }
@@ -284,7 +284,7 @@ def test_trace_from_attribute_to_ciod(ciods, ciod_module_relationship, modules,
     ciod = {
         "name": "Computed Radiography Image",
         "id": "computed-radiography-image",
-        "description": "<p>\nThe <a href=\"http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_A.2.html#sect_A.2\" target=\"_blank\">Computed Radiography Image IOD</a> specifies an image that has been created by a computed radiography imaging device.</p>",
+        "description": "<p>\nThe Computed Radiography (CR) Image IOD specifies an image that has been created by a computed radiography imaging device.</p>",
         "linkToStandard": "http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_A.2.3.html#table_A.2-1"
     }
     assert attr in attributes
