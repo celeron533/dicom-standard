@@ -34,7 +34,7 @@ GenericTableType = Union[List[Dict[str, Any]], Dict[str, Any]]
 
 
 def parse_html_file(filepath: str) -> BeautifulSoup:
-    with open(filepath, 'r') as html_file:
+    with open(filepath, 'r', encoding='utf-8') as html_file:
         return BeautifulSoup(html_file, 'html.parser')
 
 

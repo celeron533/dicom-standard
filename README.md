@@ -99,11 +99,26 @@ extensible as possible. If you want to run the code yourself or configure your
 own custom parsing stage, you'll need the following system-level dependencies:
 
 - Python 3.12
-- Make + Unix tools
+- GNU Make
 
-You will probably also want to setup a "virtual environment" (e.g. using Conda,
-or Pyenv + Virtualenv) to install the project dependencies into.  Once you are
-in your "virtual environment", you can run:
+On Windows, use GNU Make from PowerShell or Command Prompt. The Makefile uses
+Python for file processing and downloads, so Unix tools such as `sed`, `wget`,
+and `find` are not required. Create and activate a virtual environment, then
+install the requirements:
+
+```powershell
+    PS> py -3.12 -m venv .venv
+    PS> .\.venv\Scripts\Activate.ps1
+    (.venv) PS> python -m pip install -r requirements.txt
+```
+
+If `python` is not the desired interpreter, pass it to Make with
+`PYTHON=<executable>`, for example `make PYTHON=py`.
+
+On Unix, use your usual Python 3.12 environment and install the requirements
+with `python -m pip install -r requirements.txt`. From the `dicom_standard`
+directory, build with:
+
 ```shell
     $ make
 ```
@@ -120,7 +135,16 @@ run the following commands in the `dicom_standard` directory:
     $ make updatestandard
     $ make
 ```
-Then copy the output to the `standard/` directory:
+
+Then copy the output to the top-level `standard/` directory. In PowerShell:
+```powershell
+    PS> Copy-Item dist\* ..\standard\
+```
+In Command Prompt:
+```bat
+    > copy /Y dist\* ..\standard\
+```
+On Unix:
 ```shell
     $ cp dist/* ../standard/
 ```
